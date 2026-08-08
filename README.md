@@ -1,22 +1,20 @@
-# 🍰 CakeRy — Online Cake & Bakery Store
+# 🍰 CakeRy
 
-CakeRy is a modern full-stack bakery e-commerce application where users can explore cakes, add products to their cart, place orders, and make payments online.
-
-The project is built with modern web technologies and focuses on a clean UI, smooth user experience, and a complete online ordering workflow.
+A full-stack online cake and bakery e-commerce platform built with React, Node.js, Express, MongoDB, and Razorpay.
 
 ## ✨ Features
 
 * 🍰 Browse cakes and bakery products
-* 🔍 Product search and filtering
-* 🛒 Add products to cart
-* 📦 Place and manage orders
-* 💳 Razorpay online payment
-* 💵 Cash on Delivery (COD)
+* 🔍 Product browsing and management
+* 🛒 Shopping cart
+* 📦 Order placement
+* 💳 Razorpay online payments
+* 💵 Cash on Delivery
 * 👤 User authentication
-* 📱 Responsive design
-* 🎨 Modern bakery-themed UI
-* 🔐 Environment variable support
-* ⚡ Fast frontend with Vite
+* 🔐 Protected routes
+* 👨‍💼 Admin panel
+* ☁️ Cloudinary image uploads
+* 📱 Responsive UI
 
 ## 🛠️ Tech Stack
 
@@ -26,7 +24,12 @@ The project is built with modern web technologies and focuses on a clean UI, smo
 * Vite
 * Tailwind CSS
 * JavaScript
-* Axios
+
+### Admin Panel
+
+* React.js
+* Vite
+* Tailwind CSS
 
 ### Backend
 
@@ -34,6 +37,9 @@ The project is built with modern web technologies and focuses on a clean UI, smo
 * Express.js
 * MongoDB
 * Mongoose
+* JWT
+* Multer
+* Cloudinary
 
 ### Payment
 
@@ -41,6 +47,7 @@ The project is built with modern web technologies and focuses on a clean UI, smo
 
 ## 📁 Project Structure
 
+```text
 Cakery/
 │
 ├── Frontend/
@@ -52,8 +59,7 @@ Cakery/
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
-│   ├── vite.config.js
-│   └── .env
+│   └── vite.config.js
 │
 ├── admin/
 │   ├── public/
@@ -71,120 +77,144 @@ Cakery/
 │   │   ├── cloudinary.js
 │   │   ├── mongodb.js
 │   │   └── token.js
+│   │
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   ├── cartController.js
 │   │   ├── orderController.js
 │   │   ├── productContoller.js
 │   │   └── userContoller.js
+│   │
 │   ├── middleware/
 │   │   ├── adminAuth.js
 │   │   ├── isAuth.js
 │   │   └── multer.js
+│   │
 │   ├── models/
 │   │   ├── orderModel.js
 │   │   ├── productModel.js
 │   │   └── usermodel.js
+│   │
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── cartRoutes.js
 │   │   ├── orderRoutes.js
 │   │   ├── productRoutes.js
 │   │   └── userRoutes.js
+│   │
 │   ├── index.js
 │   ├── package.json
 │   └── package-lock.json
 │
 ├── .gitignore
 └── README.md
-
 ```
 
-## ⚙️ Installation
+## 🚀 Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd CakeRy
+git clone YOUR_REPOSITORY_URL
+cd Cakery
 ```
 
-### 2. Install frontend dependencies
+### 2. Install Frontend dependencies
 
 ```bash
-cd frontend
+cd Frontend
 npm install
 ```
 
-### 3. Install backend dependencies
+### 3. Install Admin dependencies
 
 ```bash
-cd ../backend
+cd ../admin
+npm install
+```
+
+### 4. Install Backend dependencies
+
+```bash
+cd ../Backend
 npm install
 ```
 
 ## 🔐 Environment Variables
 
-Create a `.env` file in the required frontend/backend directories based on `.env.example`.
+Environment variables are required for the frontend and backend.
+
+Create the required `.env` files locally.
+
+**Never commit your `.env` files to GitHub.**
 
 Example:
 
 ```env
-VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
-VITE_API_URL=your_backend_api_url
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+RAZORPAY_KEY_ID=your_razorpay_key
+RAZORPAY_KEY_SECRET=your_razorpay_secret
 ```
 
-Never commit your real `.env` file or secret API keys to GitHub.
+Use the variables required by your actual project configuration.
 
-## 🚀 Running the Project
+## ▶️ Run the Project
 
 ### Frontend
 
 ```bash
-cd frontend
+cd Frontend
+npm run dev
+```
+
+### Admin Panel
+
+```bash
+cd admin
 npm run dev
 ```
 
 ### Backend
 
 ```bash
-cd backend
+cd Backend
 npm run dev
 ```
 
-The application can then be opened in your browser using the local frontend URL shown by Vite.
-
 ## 🏗️ Production Build
 
-To create the production frontend build:
+For the frontend:
 
 ```bash
+cd Frontend
 npm run build
 ```
 
-The generated `dist` folder is normally excluded from GitHub using `.gitignore`.
+For the admin panel:
+
+```bash
+cd admin
+npm run build
+```
+
+The generated `dist/` folders should not be committed to GitHub.
 
 ## 💳 Payment
 
-CakeRy supports Razorpay online payments along with Cash on Delivery.
+CakeRy supports online payments through Razorpay and also provides Cash on Delivery.
 
-For local development, configure the required Razorpay environment variables using your own Razorpay credentials.
+For Razorpay integration, configure the required credentials through environment variables.
 
 ## 🔒 Security
 
-* API credentials are stored in environment variables.
-* `.env` files are excluded from Git.
-* Sensitive payment credentials should never be committed to the repository.
-
-## 📌 Future Improvements
-
-* ❤️ Wishlist
-* ⭐ Product reviews and ratings
-* 🎁 Custom cake ordering
-* 📍 Delivery tracking
-* 🔔 Order notifications
-* 👨‍💼 Admin dashboard
-* 📊 Sales analytics
+* Environment files are excluded from Git.
+* API credentials should never be committed.
+* Authentication uses protected routes and JWT.
+* Sensitive credentials should be stored only in environment variables.
 
 ## 👨‍💻 Author
 
@@ -192,8 +222,8 @@ For local development, configure the required Razorpay environment variables usi
 
 Full Stack MERN Developer
 
-GitHub: `https://github.com/princebharadwaj-dev`
+GitHub: [princebharadwaj-dev](https://github.com/princebharadwaj-dev)
 
 ---
 
-⭐ If you like this project, consider giving it a star!
+⭐ If you found this project useful, consider giving it a star!
