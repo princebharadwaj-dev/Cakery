@@ -33,7 +33,7 @@ const handleLogin = async (e) => {
     );
 
     console.log(result.data);
-    getCurrentUser()
+    await getCurrentUser()
     toast.success("Login successfully!");
     navigate("/");
   } catch (error) {
