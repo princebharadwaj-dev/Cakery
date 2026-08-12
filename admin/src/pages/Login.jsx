@@ -31,7 +31,7 @@ const handleLogin = async (e) => {
 
     console.log(result.data);
     toast.success("Login successfully!");
-    getAdmin()
+    await getAdmin()
     navigate("/");
   } catch (error) {
     console.log(error);
