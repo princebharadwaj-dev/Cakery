@@ -26,7 +26,7 @@ const Signup = () => {
       name, email,password
     },{withCredentials:true})
     console.log(result.data)
-    getCurrentUser()
+    await getCurrentUser()
     toast.success("Account created successfully!")
     Navigate('/')
    } catch (error) {
